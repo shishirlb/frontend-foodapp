@@ -13,17 +13,21 @@
                 <mat-error *ngIf="signupForm.controls.name.touched && signupForm.controls.name.invalid">
                     <span *ngIf="signupForm.controls.name.errors.required">This field is mandatory.</span>   
                     <span *ngIf="signupForm.controls.name.errors.pattern">This field is invalid.</span>   
+<<<<<<< HEAD
 
                 </mat-error>
             </mat-form-field>
 
+=======
+                </mat-error>
+            </mat-form-field>
+>>>>>>> 99e41343f55368809ce2c22e71c9f77a6e4c79bc
             <mat-form-field appearance="fill" fxFlex>
                 <mat-label>Email</mat-label>
                 <input matInput formControlName="email" required>
                 <mat-error *ngIf="signupForm.controls.email.touched && signupForm.controls.email.invalid">
                     <span *ngIf="signupForm.controls.email.errors.required">This field is mandatory.</span>   
                     <span *ngIf="signupForm.controls.email.errors.pattern">This field is invalid.</span>   
-
                 </mat-error>
             </mat-form-field>
 
@@ -43,7 +47,6 @@
                 <mat-error *ngIf="signupForm.controls.password.touched && signupForm.controls.password.invalid">
                     <span *ngIf="signupForm.controls.password.errors.required">This field is mandatory.</span>   
                     <span *ngIf="signupForm.controls.password.errors.pattern">This field is invalid.</span>   
-
                 </mat-error>
             </mat-form-field>
 
@@ -51,7 +54,11 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions align="center">
+<<<<<<< HEAD
     <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()"
     [disabled]="!(signupForm.valid && signupForm.dirty)">Signup</button>
+=======
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(signupForm.valid && signupForm.dirty)">Signup</button>
+>>>>>>> 99e41343f55368809ce2c22e71c9f77a6e4c79bc
     <button mat-raised-button color="primary" mat-dialog-close>Close</button>    
 </mat-dialog-actions>
