@@ -23,6 +23,23 @@ export class SignupComponent implements OnInit {
     private dialogRef: MatDialogRef<SignupComponent>) { }
 
   ngOnInit(): void {
+<<<<<<< HEAD
+    this.signupForm=this.formBuilder.group({
+      name:[null,[Validators.required,Validators.pattern(GlobalConstants.nameRegex)]],
+      email:[null,[Validators.required,Validators.pattern(GlobalConstants.emailRegex)]],
+      contactNumber:[null,[Validators.required,Validators.pattern(GlobalConstants.contactNumberRegex)]],
+      password:[null,[Validators.required]],
+    })
+  }
+
+  handleSubmit(){
+    var formData=this.signupForm.value;
+    var data={
+      name:formData.name,
+      email:formData.email,
+      contactNumber:formData.contactNumber,
+      password:formData.password
+=======
     this.signupForm = this.formBuilder.group({
       name: [null, [Validators.required, Validators.pattern(GlobalConstants.nameRegex)]],
       email: [null, [Validators.required, Validators.pattern(GlobalConstants.emailRegex)]],
@@ -37,6 +54,7 @@ export class SignupComponent implements OnInit {
       name: formData.name,
       email: formData.email,
       password: formData.password
+>>>>>>> 99e41343f55368809ce2c22e71c9f77a6e4c79bc
     }
 
     this.userService.signUp(data).subscribe((response: any) => {
