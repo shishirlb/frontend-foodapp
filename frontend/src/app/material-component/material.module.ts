@@ -33,9 +33,7 @@ import { ChangepasswordComponent } from './dialog/changepassword/changepassword.
   declarations: [
     ViewBillProductsComponent,
     ManageCategoryComponent,
-
-    CategoryComponent    
-
+    CategoryComponent,
     ConfirmationComponent,
     ChangepasswordComponent    
   ]
