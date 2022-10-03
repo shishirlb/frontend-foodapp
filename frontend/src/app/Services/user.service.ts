@@ -17,7 +17,7 @@ export class UserService {
   }
 
   login(data: any) {
-    return this.httpClient.post(this.url + "/user/login/", data)
+    return this.httpClient.post(this.url + "/user/login", data)
   }
 
   checkToken() {
