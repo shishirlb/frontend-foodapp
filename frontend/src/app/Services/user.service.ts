@@ -6,25 +6,21 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
+
   url = environment.apiUrl;
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
 
-  signUp(data:any){
-    return this.httpClient.post(this.url+ "/user/signup",data,{
-      headers:new HttpHeaders().set('Content-Type',"application/json")
-    })
+  signUp(data: any) {
+    return this.httpClient.post(this.url + "/user/signup", data)
   }
 
-  login(data:any){
-    return this.httpClient.post(this.url+ 
-      "/user/login/",data,{
-        headers:new HttpHeaders().set('Content-Type',"application/json")
-      })
+  login(data: any) {
+    return this.httpClient.post(this.url + "/user/login", data)
   }
 
-  checkToken(){
+  checkToken() {
     return this.httpClient.get(this.url + "/user/checkToken")
   }
 }
