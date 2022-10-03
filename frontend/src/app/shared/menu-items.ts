@@ -5,11 +5,6 @@ import { DashboardComponent } from "../dashboard/dashboard.component";
 
 export interface Menu{
 
-
-import { Injectable } from "@angular/core";
-
-export interface Menu{
-
     state:string;
     name:string;
     icon:string;
@@ -22,14 +17,6 @@ const MENUITEMS = [
     {state:'dashboard',name:'Manage Category',icon:'category',role:'branchmanager'}
 ];
 
-
-@Injectable()
-export class MenuItems{
-    getMenuitem():Menu[]{
-
-const MENUITEMS=[
-    {state: 'dashboard',name: 'Dashboard',icon: 'dashboard',role:''}
-];
 
 @Injectable()
 export class MenuItems{
