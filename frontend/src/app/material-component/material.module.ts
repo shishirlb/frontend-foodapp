@@ -11,8 +11,12 @@ import { MaterialRoutes } from './material.routing';
 import { MaterialModule } from '../shared/material-module';
 import { ViewBillProductsComponent } from './dialog/view-bill-products/view-bill-products.component';
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
+
+import { CategoryComponent } from './dialog/view-bill-products/category/category.component';
+
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { ChangepasswordComponent } from './dialog/changepassword/changepassword.component';
+
 
 @NgModule({
   imports: [
@@ -29,6 +33,9 @@ import { ChangepasswordComponent } from './dialog/changepassword/changepassword.
   declarations: [
     ViewBillProductsComponent,
     ManageCategoryComponent,
+
+    CategoryComponent    
+
     ConfirmationComponent,
     ChangepasswordComponent    
   ]
