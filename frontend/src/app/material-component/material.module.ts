@@ -14,6 +14,7 @@ import { ManageCategoryComponent } from './manage-category/manage-category.compo
 import { ManageProductComponent } from './manage-product/manage-product.component';
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { ChangepasswordComponent } from './dialog/changepassword/changepassword.component';
+import { ProductComponent } from './dialog/product/product.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { ChangepasswordComponent } from './dialog/changepassword/changepassword.
     ManageCategoryComponent,
     ManageProductComponent,    
     ConfirmationComponent,
-    ChangepasswordComponent    
+    ChangepasswordComponent,
+    ProductComponent    
   ]
 })
 export class MaterialComponentsModule {}
