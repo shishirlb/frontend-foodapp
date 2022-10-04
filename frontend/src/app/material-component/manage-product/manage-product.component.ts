@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/Services/product.service';
 import { SnackbarService } from 'src/app/Services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
+import { ConfirmationComponent } from '../dialog/confirmation/confirmation.component';
+import { ProductComponent } from '../dialog/product/product.component';
 
 @Component({
   selector: 'app-manage-product',
@@ -20,7 +22,7 @@ export class ManageProductComponent implements OnInit {
   constructor(private productService: ProductService,
     private dialog: MatDialog,
     private snackbarService: SnackbarService,
-    router: Router) { }
+    public router: Router) { }
 
   ngOnInit(): void {
     this.tableData();
@@ -47,19 +49,87 @@ export class ManageProductComponent implements OnInit {
   }
 
   handleAddAction() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      action: 'Add'
+    }
+    dialogConfig.width = "850px";
+    const dialogReference = this.dialog.open(ProductComponent, dialogConfig);
+    this.router.events.subscribe(() => {
+      dialogReference.close();
+    })
+
+    const sub = dialogReference.componentInstance.onAddProduct.subscribe((response) =>{
+      this.tableData();
+    })
 
   }
 
   handleEditAction(value:any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      action: 'Edit',
+      data: value
+    }
+    dialogConfig.width = "850px";
+    const dialogReference = this.dialog.open(ProductComponent, dialogConfig);
+    this.router.events.subscribe(() => {
+      dialogReference.close();
+    })
 
+    const sub = dialogReference.componentInstance.onEditProduct.subscribe((response) =>{
+      this.tableData();
+    })
   }
 
   handleDeleteAction(value:any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      message: 'delete '+ value.name
+    }
+    const dialogReference = this.dialog.open(ConfirmationComponent, dialogConfig);
+    const sub = dialogReference.componentInstance.onEmitStatusChange.subscribe((response) =>{
+      this.deleteProduct(value.id);
+      dialogReference.close();
+    })
+  }
 
+  deleteProduct(id: any) {
+    this.productService.deleteProduct(id).subscribe((response: any) =>{
+      this.tableData();
+      this.responseMessage = response?.message;
+      this.snackbarService.openSnackBar(this.responseMessage, "success");
+    }, (error:any)=>{
+      console.log(error);
+      if(error.error?.message) {
+        this.responseMessage = error.error?.message;
+      }
+      else {
+        this.responseMessage = GlobalConstants.genericError;
+      }
+      this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.error);
+    })
   }
 
   onChange(status:any, id:any) {
-    
+    var data = {
+      status: status.toString(),
+      id: id
+    }
+
+    this.productService.updateStatus(data).subscribe((response: any) => {
+      this.responseMessage = response?.message;
+      this.snackbarService.openSnackBar(this.responseMessage, "success");
+    }, (error:any)=>{
+      console.log(error);
+      if(error.error?.message) {
+        this.responseMessage = error.error?.message;
+      }
+      else {
+        this.responseMessage = GlobalConstants.genericError;
+      }
+      this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.error);
+    });
   }
 
 }
