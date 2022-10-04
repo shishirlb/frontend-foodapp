@@ -9,9 +9,13 @@ export class CategoryService {
 
   url = environment.apiUrl;
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  add(data:any) {
-    return this.httpClient.post(this.url+ "/category/add", data);
+  add(data: any) {
+    return this.httpClient.post(this.url + "/category/add", data);
+  }
+
+  getCategory() {
+    return this.httpClient.get(this.url + "/category/get");
   }
 }
