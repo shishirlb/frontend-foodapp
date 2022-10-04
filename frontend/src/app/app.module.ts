@@ -13,11 +13,12 @@ import { SharedModule } from './shared/shared.module';
 import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { TokenInterceptorInterceptor } from './Services/token-interceptor.interceptor';
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     HomeComponent,
     BestSellerComponent,
@@ -26,7 +27,7 @@ import { LoginComponent } from './login/login.component';
     AppSidebarComponent,
     SignupComponent,
     LoginComponent
-   ],
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,7 +39,7 @@ import { LoginComponent } from './login/login.component';
     SharedModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
