@@ -18,4 +18,8 @@ export class CategoryService {
   getCategory() {
     return this.httpClient.get(this.url + "/category/get");
   }
+
+  updateCategory(data: any) {
+    return this.httpClient.post(this.url + "/category/update", data);
+  }
 }
