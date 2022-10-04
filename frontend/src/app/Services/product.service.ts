@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -27,7 +27,7 @@ export class ProductService {
     return this.httpClient.post(this.url +"/product/updateStatus", data);
   }
 
-  delete(id:any) {
+  deleteProduct(id:any) {
     return this.httpClient.delete(this.url +"/product/delete/" +id);
   }
 
