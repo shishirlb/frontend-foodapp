@@ -24,9 +24,8 @@ export class UserService {
     return this.httpClient.get(this.url + "/user/checkToken")
   }
 
-  changePassword(data:any){
-    return this.httpClient.post(this.url + "/user/changePassword",data)
-      }
-
+  changePassword(data: any) {
+    return this.httpClient.post(this.url + "/user/changePassword", data)
   }
+}
 
