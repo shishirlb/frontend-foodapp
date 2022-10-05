@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
+
+import { CategoryComponent } from '../dialog/category/category.component';
+
+import { MatTableDataSource, _MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/Services/category.service';
 import { SnackbarService } from 'src/app/Services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
-import { CategoryComponent } from '../dialog/category/category.component';
+import { CategoryComponent } from '../dialog/view-bill-products/category/category.component';
 
 @Component({
   selector: 'app-manage-category',
@@ -83,4 +86,17 @@ export class ManageCategoryComponent implements OnInit {
       }
     )
   }
+  
+  handelDeleteAction(values:any){
+  const dialogConfig = new MatDialogConfig() 
+  dialogConfig.data={
+    message:'delete'+values.name+'products'
+  };
+
+  const dialogRef = this.dialog.open(CategoryComponent,dialogConfig);
+  this.router.events.subscribe(()=>{
+    dialogRef.close();
+  })
+
+}
 }

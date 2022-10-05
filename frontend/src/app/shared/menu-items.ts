@@ -1,4 +1,7 @@
+
+import { InjectableCompiler } from "@angular/compiler/src/injectable_compiler";
 import { Injectable } from "@angular/core";
+import { DashboardComponent } from "../dashboard/dashboard.component";
 
 export interface Menu {
     state: string;
@@ -11,9 +14,12 @@ const MENUITEMS = [
     { state: 'dashboard', name: 'Dashboard', icon: 'dashboard', role: '' },
     { state:'category', name:'Manage Category', icon:'category', role:'branchmanager'},
     { state: 'product', name: 'Manage Product', icon: 'inventory_2', role: 'branchmanager' }
+
 ];
 
+
 @Injectable()
+
 export class MenuItems {
     getMenuItem(): Menu[] {
         return MENUITEMS;

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -11,7 +11,8 @@ export class CategoryService {
 
   constructor(private httpClient: HttpClient) { }
 
-  add(data: any) {
+
+add(data: any) {
     return this.httpClient.post(this.url + "/category/add", data);
   }
 
@@ -21,5 +22,6 @@ export class CategoryService {
 
   updateCategory(data: any) {
     return this.httpClient.post(this.url + "/category/update", data);
-  }
+
 }
+
