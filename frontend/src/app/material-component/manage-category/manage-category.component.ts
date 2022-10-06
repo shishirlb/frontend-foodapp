@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/Services/category.service';
 import { SnackbarService } from 'src/app/Services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
-import { CategoryComponent } from '../dialog/view-bill-products/category/category.component';
+//import { CategoryComponent } from '../dialog/view-bill-products/category/category.component';
 
 @Component({
   selector: 'app-manage-category',

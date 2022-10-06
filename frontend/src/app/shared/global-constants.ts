@@ -2,6 +2,10 @@ export class GlobalConstants {
     //Message
     public static genericError: string = "Something went wrong. Try again later";
 
+    public static productExistError: string = "Product already exist";
+
+    public static productAdded: string = "Product added successfully";
+    
     public static unauthorized: string = "You are not authorized to access this page";
 
     //Regex

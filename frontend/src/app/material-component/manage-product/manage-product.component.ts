@@ -7,27 +7,22 @@ import { SnackbarService } from 'src/app/Services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
 import { ConfirmationComponent } from '../dialog/confirmation/confirmation.component';
 import { ProductComponent } from '../dialog/product/product.component';
-
 @Component({
   selector: 'app-manage-product',
   templateUrl: './manage-product.component.html',
   styleUrls: ['./manage-product.component.scss']
 })
 export class ManageProductComponent implements OnInit {
-
   displayedColumns: string[] = ['name', 'categoryName', 'description', 'price', 'edit'];
   dataSource: any;
   responseMessage: any;
-
   constructor(private productService: ProductService,
     private dialog: MatDialog,
     private snackbarService: SnackbarService,
     public router: Router) { }
-
   ngOnInit(): void {
     this.tableData();
   }
-
   tableData() {
     this.productService.getProduct().subscribe((response:any)=>{
       this.dataSource = new MatTableDataSource(response);
@@ -42,12 +37,10 @@ export class ManageProductComponent implements OnInit {
       this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.error);
     })
   }
-
   applyFilter(event:Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
   handleAddAction() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
@@ -58,13 +51,10 @@ export class ManageProductComponent implements OnInit {
     this.router.events.subscribe(() => {
       dialogReference.close();
     })
-
     const sub = dialogReference.componentInstance.onAddProduct.subscribe((response) =>{
       this.tableData();
     })
-
   }
-
   handleEditAction(value:any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
@@ -76,12 +66,10 @@ export class ManageProductComponent implements OnInit {
     this.router.events.subscribe(() => {
       dialogReference.close();
     })
-
     const sub = dialogReference.componentInstance.onEditProduct.subscribe((response) =>{
       this.tableData();
     })
   }
-
   handleDeleteAction(value:any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
@@ -93,7 +81,6 @@ export class ManageProductComponent implements OnInit {
       dialogReference.close();
     })
   }
-
   deleteProduct(id: any) {
     this.productService.deleteProduct(id).subscribe((response: any) =>{
       this.tableData();
@@ -110,13 +97,11 @@ export class ManageProductComponent implements OnInit {
       this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.error);
     })
   }
-
   onChange(status:any, id:any) {
     var data = {
       status: status.toString(),
       id: id
     }
-
     this.productService.updateStatus(data).subscribe((response: any) => {
       this.responseMessage = response?.message;
       this.snackbarService.openSnackBar(this.responseMessage, "success");
@@ -131,5 +116,4 @@ export class ManageProductComponent implements OnInit {
       this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.error);
     });
   }
-
 }
