@@ -17,6 +17,11 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptorInterceptor } from './Services/token-interceptor.interceptor';
 import { BestSellerComponent } from './best-seller/best-seller.component';
+//import {MatToolbarModule} from '@angular/material/toolbar'; 
+import { CategoryComponent } from './material-component/dialog/category/category.component';
+//import {MatFormFieldModule } from '@angular/material/form-field';
+
+
 
 @NgModule({
   declarations: [
@@ -27,8 +32,10 @@ import { BestSellerComponent } from './best-seller/best-seller.component';
     AppHeaderComponent,
     AppSidebarComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    CategoryComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,7 +45,9 @@ import { BestSellerComponent } from './best-seller/best-seller.component';
     MaterialModule,
     FlexLayoutModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    
+    
   ],
   providers: [HttpClientModule, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true}],
   bootstrap: [AppComponent]

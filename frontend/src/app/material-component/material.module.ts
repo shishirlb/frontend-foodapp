@@ -19,6 +19,7 @@ import { CategoryComponent } from './dialog/view-bill-products/category/category
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { ChangepasswordComponent } from './dialog/changepassword/changepassword.component';
 import { ProductComponent } from './dialog/product/product.component';
+import { ManageOrderComponent } from './manage-order/manage-order.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ProductComponent } from './dialog/product/product.component';
     CategoryComponent,
     ConfirmationComponent,
     ChangepasswordComponent,
-    ProductComponent,   
+    ProductComponent,
+    ManageOrderComponent,   
   ]
 })
 export class MaterialComponentsModule {}
