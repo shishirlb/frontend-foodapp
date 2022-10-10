@@ -144,7 +144,7 @@ export class ManageOrderComponent implements OnInit {
 
     handleDeleteAction(value:any,element:any){
       this.totalAmount = this.totalAmount - element.total;
-      this.dataSource.slice(value,1);
+      this.dataSource.splice(value,1);
       this.dataSource = [...this.dataSource];
     }
 
