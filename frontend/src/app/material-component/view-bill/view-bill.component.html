@@ -1,36 +1,34 @@
-<h3>sfddsdvsdv</h3>
 <mat-card>
   <b><span>View Bill</span></b>
 </mat-card>
 <hr />
 <mat-card>
   <mat-form-field appearance="fill">
-    <mat-label>filter</mat-label>
+    <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" #input />
   </mat-form-field>
 </mat-card>
 <hr />
 <div class="responsive_table">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
-
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
 
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef>Email</th>
-
-      <td mat cell *matCellDef="let element">{{ element.email }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
     </ng-container>
 
     <ng-container matColumnDef="contactNumber">
       <th mat-header-cell *matHeaderCellDef>Contact Number</th>
       <td mat-cell *matCellDef="let element">{{ element.contactNumber }}</td>
     </ng-container>
-    <ng-container matColumnDef="paymentMethod">
-      <th mat-header-cell matHeaderCellDef>Payment Method</th>
 
+    <ng-container matColumnDef="paymentMethod">
+      <th mat-header-cell *matHeaderCellDef>Payment Method</th>
       <td mat-cell *matCellDef="let element">{{ element.paymentMethod }}</td>
     </ng-container>
 
@@ -41,8 +39,7 @@
     </ng-container>
 
     <ng-container matColumnDef="view">
-      <th mat-header-cell matHeaderCellDef>Action</th>
-
+      <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let element" class="action-link">
         <button
           mat-icon-button
@@ -60,15 +57,6 @@
           (click)="downloadReportAction(element)"
         >
           <mat-icon>summarize</mat-icon>
-        </button>
-
-        <button
-          mat-icon-button
-          color="primary"
-          matTooltip="View"
-          (click)="handleDeleteAction(element)"
-        >
-          <mat-icon>Delete</mat-icon>
         </button>
       </td>
     </ng-container>
