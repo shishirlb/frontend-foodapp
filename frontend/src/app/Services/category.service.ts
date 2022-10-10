@@ -12,7 +12,7 @@ export class CategoryService {
   constructor(private httpClient: HttpClient) { }
 
 
-add(data: any) {
+  add(data: any) {
     return this.httpClient.post(this.url + "/category/add", data);
   }
 
@@ -23,6 +23,6 @@ add(data: any) {
   updateCategory(data: any) {
     return this.httpClient.post(this.url + "/category/update", data);
 
-}
+  }
 
 }
