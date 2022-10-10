@@ -62,7 +62,7 @@ export class ManageCategoryComponent implements OnInit {
     });
     const sub = dialogRef.componentInstance.onAddCategory.subscribe(
       (response) => {
-        this.tableData;
+        this.tableData();
       }
     )
   }
@@ -82,7 +82,7 @@ export class ManageCategoryComponent implements OnInit {
 
     const sub = dialogRef.componentInstance.onEditCategory.subscribe(
       (response) => {
-        this.tableData;
+        this.tableData();
       }
     )
   }
