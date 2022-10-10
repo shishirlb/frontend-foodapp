@@ -20,6 +20,8 @@ import { ConfirmationComponent } from './dialog/confirmation/confirmation.compon
 import { ChangepasswordComponent } from './dialog/changepassword/changepassword.component';
 import { ProductComponent } from './dialog/product/product.component';
 import { ManageOrderComponent } from './manage-order/manage-order.component';
+import { ViewBillComponent } from './view-bill/view-bill.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { ManageOrderComponent } from './manage-order/manage-order.component';
     ConfirmationComponent,
     ChangepasswordComponent,
     ProductComponent,
-    ManageOrderComponent,   
+    ManageOrderComponent,
+    ViewBillComponent,
+    ManageUserComponent,   
   ]
 })
 export class MaterialComponentsModule {}
