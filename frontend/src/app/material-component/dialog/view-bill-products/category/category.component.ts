@@ -1,4 +1,4 @@
- import { formatDate } from '@angular/common';
+ //import { formData } from '@angular/common';
 
 import { Component, EventEmitter,Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -19,6 +19,7 @@ export class CategoryComponent implements OnInit {
        dialogAction:any = "Add";
        action:any="Add";
        responseMessage:any;
+
   constructor(@Inject(MAT_DIALOG_DATA) public dialogData:any,
   private formBuilder:FormBuilder,
   private categoryService:CategoryService,
@@ -50,7 +51,7 @@ export class CategoryComponent implements OnInit {
     add(){
       var formData = this.categoryForm.value;
       var data = {
-        name: formatDate.name
+        name: formData.name
       }
       this.categoryService.add(data).subscribe((response:any)=>{
         this.dialogRef.close();
@@ -74,9 +75,9 @@ this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.error);
     edit(){
       var formData = this.categoryForm.value;
       var data = {
-        name: formatDate.name
+        name: formData.name
       }
-      this.categoryService.update(data).subscribe((response:any)=>{
+      this.categoryService.updateCategory(data).subscribe((response:any)=>{
         this.dialogRef.close();
      
         this.responseMessage = response.message;
