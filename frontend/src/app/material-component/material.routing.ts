@@ -34,7 +34,6 @@ export const MaterialRoutes: Routes = [
         canActivate: [RouteGuardService],
         data: { expectedRole: ['branchmanager','user'] }
     },
-
     {
         path: 'user',
         component: ManageUserComponent,
