@@ -4,6 +4,7 @@ import { ViewBillProductsComponent } from './dialog/view-bill-products/view-bill
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
 import { ManageOrderComponent } from './manage-order/manage-order.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 import { ViewBillComponent } from './view-bill/view-bill.component';
 
 
@@ -32,5 +33,12 @@ export const MaterialRoutes: Routes = [
         component: ViewBillComponent,
         canActivate: [RouteGuardService],
         data: { expectedRole: ['branchmanager','user'] }
+    },
+
+    {
+        path: 'user',
+        component: ManageUserComponent,
+        canActivate: [RouteGuardService],
+        data: { expectedRole: ['branchmanager'] }
     }
 ];
