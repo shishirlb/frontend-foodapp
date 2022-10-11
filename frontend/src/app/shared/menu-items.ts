@@ -12,11 +12,11 @@ export interface Menu {
 
 const MENUITEMS = [
     { state: 'dashboard', name: 'Dashboard', icon: 'dashboard', role: '' },
-    { state:'category', name:'Manage Category', icon:'category', role:'branchmanager'},
-    { state: 'product', name: 'Manage Product', icon: 'inventory_2', role: 'branchmanager' },
-    { state: 'order', name: 'Manage Order', icon: 'list_alt', role: '' },
-    { state: 'bill', name: 'View Bill', icon: 'import_contacts', role: '' },
-    { state: 'user', name: 'View User', icon: 'people', role: 'branchmanager' },
+    { state:'category', name:'Categories', icon:'category', role:'branchmanager'},
+    { state: 'product', name: 'Products', icon: 'inventory_2', role: 'branchmanager' },
+    { state: 'order', name: 'Orders', icon: 'list_alt', role: '' },
+    { state: 'bill', name: 'Bills', icon: 'import_contacts', role: '' },
+    { state: 'user', name: 'Staff', icon: 'people', role: 'branchmanager' },
 
 ];
 

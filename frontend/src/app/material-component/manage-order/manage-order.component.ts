@@ -154,12 +154,12 @@ export class ManageOrderComponent implements OnInit {
   submitAction() {
     var formData = this.manageOrderForm.value;
     var data = {
-      fileName: "test",
+      fileName: "OrderFile",
       name: formData.name,
       email: formData.email,
       contactNumber: formData.contactNumber,
       paymentMethod: formData.paymentMethod,
-      totalAmount: this.totalAmount,
+      totalAmount: Math.round(this.totalAmount),
       productDetails: JSON.stringify(this.dataSource)
     }
 
